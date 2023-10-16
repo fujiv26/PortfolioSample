@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taro Yamada - Portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+    <!-- ヘッダー -->
+    <header>
+
+        <!-- デスクトップナビ -->
+        <nav class="pc_navi">
+            <ul>
+                <li><a href="#">HOME</a></li>
+                <li><a href="#skill">SKILL</a></li>
+                <li><a href="#works">WORKS</a></li>
+            </ul>
+        </nav>
+        <!-- デスクトップナビここまで -->
+
+        <!-- スマートフォンナビ -->
+        <div class="sp_navi">
+            <input type="checkbox" id="sp_navi_btn_check">
+            <label for="sp_navi_btn_check" class="sp_navi_btn"><span></span></label>
+            <!-- スマートフォンナビを開いたときの内容 -->
+            <div class="sp_navi_content">
+                <ul>
+                    <li><a href="#">HOME</a></li>
+                    <li><a href="#skill">SKILL</a></li>
+                    <li><a href="#works">WORKS</a></li>
+                </ul>
+            </div>
+            <!-- スマートフォンナビここまで -->
+
+    </header>
+
+    <!-- メイン -->
+    <main>
+
+        <!----------------------------- トップセクション(ヒーローイメージ) ----------------------------->
+
+        <section class="top">
+
+            <!-- スクロールを促すテキスト -->
+            <div class="scrolldown1"><span>Scroll</span></div>
+
+            <!-- トップページの写真 このページではCSSのbackground-imageで指定 -->
+            <div class="top_img"></div>
+
+            <!-- トップページのテキストボックス -->
+            <div class="top_container">
+                <h1>Portfolio</h1>
+            </div>
+
+        </section>
+
+        <!----------------------------- 自己紹介セクション ----------------------------->
+
+        <section class="about fadein" id="about">
+            <h1 class="about_title">私について</h1>
+
+            <!-- プロフィール -->
+            <div class="profile">
+
+                <!-- プロフィール写真 -->
+                <img src="images/prof_img.jpg" alt="プロフィール写真" id="profile_phot">
+
+                <!-- プロフィール本文 -->
+                <div class="profile_desc">
+                    <h2>Taro Yamada</h2>
+                    <p>
+                        プロフィール本文プロフィール本文プロフィール本文プロフィール本文プロフィール本文プロフィール本文プロフィール本文プロフィール本文エドモンド本田プロフィール本文プロフィール本文
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!----------------------------- スキルセクション ----------------------------->
+
+        <section class="skill fadein" id="skill">
+            <h1 class="skill_title" id="skill">できること</h1>
+
+            <!-- スキルの項目を横並びにするコンテナ -->
+            <div class="skill_flex_container">
+
+                <!-- １つめ -->
+                <div class="skill_item">
+                    <h2>VSCode</h2>
+                    <img src="images/skill_img1.png" alt="コードエディタのアイコン">
+                    <div class="skill_desc">
+                        <h3>使用経験 : </h3>
+                        <p>
+                            「速く、正確に、読みやすい」コードを目指しています。
+                            「速く、正確に、読みやすい」コードを目指しています。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- ２つめ -->
+                <div class="skill_item">
+                    <h2>VSCode</h2>
+                    <img src="images/skill_img1.png" alt="コードエディタのアイコン">
+                    <div class="skill_desc">
+                        <h3>使用経験 : </h3>
+                        <p>
+                            「速く、正確に、読みやすい」コードを目指しています。
+                            「速く、正確に、読みやすい」コードを目指しています。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- ３つめ -->
+                <div class="skill_item">
+                    <h2>VSCode</h2>
+                    <img src="images/skill_img1.png" alt="コードエディタのアイコン">
+                    <div class="skill_desc">
+                        <h3>使用経験 : </h3>
+                        <p>
+                            「速く、正確に、読みやすい」コードを目指しています。
+                            「速く、正確に、読みやすい」コードを目指しています。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!----------------------------- 作品集セクション ----------------------------->
+
+        <section class="works fadein" id="works">
+            <h1 class="works_title" id="works">作品集</h1>
+
+            <!-- 中身が横並びのコンテナ -->
+            <div class="works_flex_container">
+
+                <!-- 作品集1 -->
+                <div class="works_item">
+
+                    <!-- 作品集1イメージ -->
+                    <p><img src="images/shampoo.jpeg" alt="シャンプー広告のバナー写真"></p>
+
+                    <h2>作品集タイトル1</h2>
+                    <p>作品集タイトル1の説明</p>
+                </div>
+
+                <!-- 作品集2 -->
+                <div class="works_item">
+
+                    <!-- 作品集2イメージ -->
+                    <p><img src="images/shampoo.jpeg" alt="シャンプー広告のバナー写真"></p>
+
+                    <h2>作品集タイトル2</h2>
+                    <p>作品集タイトル2の説明</p>
+                </div>
+
+                <!-- 作品集3 -->
+                <div class="works_item">
+
+                    <!-- 作品集3イメージ -->
+                    <p><img src="images/shampoo.jpeg" alt="シャンプー広告のバナー写真"></p>
+
+                    <h2>作品集タイトル3</h2>
+                    <p>作品集タイトル3の説明</p>
+                </div>
+            </div>
+
+    </main>
+    <!-- メインここまで -->
+
+    <!-- フッター　footer1とfooter2を分けて配置 -->
+    <footer>
+        <div class="footer_flex_container">
+            <div class="footer_flex1">
+                <p>Taro Yamada Portfolio</p>
+            </div>
+            <div class="footer_flex2">
+                <ul>
+                    <li><a href="#">HOME</a></li>
+                    <li><a href="#skill">SKILL</a></li>
+                    <li><a href="#works">WORKS</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- コピーライト -->
+        <small>&copy;2023 Portfolio</small>
+    </footer>
+    <!-- フッター終了 -->
+
+    <script src="script/script.js" defer></script>
+</body>
+
+</html>

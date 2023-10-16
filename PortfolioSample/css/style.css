@@ -1,0 +1,539 @@
+@charset "UTF-8";
+
+/* ------------------------全体設定 START-------------------------*/
+
+/* 簡易リセットCSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* bodyの最小幅380px */
+    min-width: 380px;
+    margin: 0 auto;
+
+    /* 横スクロールが出るのでoverflow-x(横)をhidden(隠す) */
+    overflow-x: hidden;
+
+    /* 全体フォントを変更したい場合はここ */
+    font-family: "Noto Sans JP", serif;
+    text-align: center;
+}
+
+/* クラス名にfadeinを入れるとアニメーションを設定できる。アニメーションさせる対象は透明にしておく。 */
+.fadein {
+    opacity: 0;
+}
+
+/* ------------------------全体設定 END-------------------------*/
+
+/* ヘッダー */
+header {
+    /* ヘッダーをtop0(一番上)に固定配置 */
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    width: 100%;
+    margin: 0 auto;
+    padding: 30px 0;
+    background-color: rgb(255, 255, 255);
+}
+
+
+/* ------------------------PCナビ START-------------------------*/
+
+.pc_navi {
+    width: 100%;
+    background-color: transparent;
+}
+
+.pc_navi ul {
+    /* flexでリストを横並びに */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    width: 100%;
+
+    /* flexアイテム同士の空白(gap) */
+
+    gap: 100px;
+}
+
+.pc_navi ul li {
+    font-size: 18px;
+    transition: .5s;
+}
+
+/* リストのリンク設定 */
+.pc_navi ul li a {
+    color: black;
+    text-decoration: none;
+    transition: .3s;
+}
+
+/* リストのリンク文字をホバーしたときに文字色を変える */
+.pc_navi ul li a:hover {
+    color: rgb(0, 0, 0, .5);
+}
+
+/* ------------------------PCナビ END-------------------------*/
+
+
+/* ------------------------スマートフォンナビ START-------------------------*/
+
+/* ボタンの位置や大きさ */
+.sp_navi_btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    position: fixed;
+    top: 5px;
+    right: 10px;
+    z-index: 90;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+}
+
+/* ボタン線の設定 */
+.sp_navi_btn span, .sp_navi_btn span:before, .sp_navi_btn span:after {
+    display: block;
+    position: absolute;
+    width: 25px;
+    height: 3px;
+    border-radius: 3px;
+
+    /* 線の色を変更 */
+    background-color: black;
+    content: "";
+}
+
+.sp_navi_btn span:before {
+    bottom: 8px;
+}
+
+.sp_navi_btn span:after {
+    top: 8px;
+}
+
+#sp_navi_btn_check:checked~.sp_navi-btn span {
+    /*メニューオープン時は真ん中の線を透明にする*/
+    background-color: rgba(255, 255, 255, 0);
+}
+
+#sp_navi_btn_check:checked~.sp_navi-btn span::before {
+    bottom: 0;
+    transform: rotate(45deg);
+}
+
+#sp_navi_btn_check:checked~.sp_navi-btn span::after {
+    top: 0;
+    transform: rotate(-45deg);
+}
+
+#sp_navi_btn_check {
+    display: none;
+}
+
+/* スマートフォンナビを開いたときのページ設定 */
+.sp_navi_content {
+    position: fixed;
+    top: 0;
+    left: 100%;
+    z-index: 80;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, .904);
+    transition: all .5s;
+}
+
+.sp_navi_content ul {
+    padding: 100px 10px 0;
+    text-align: center;
+}
+
+.sp_navi_content ul li {
+    list-style: none;
+}
+
+.sp_navi_content ul li a {
+    display: block;
+    position: relative;
+    width: 100%;
+    padding: 20px 15px 20px 10px;
+    box-sizing: border-box;
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+    letter-spacing: 5px;
+    text-decoration: none;
+}
+
+#sp_navi_btn_check:checked~.sp_navi_content {
+    left: 0;
+}
+
+/* ------------------------スマートフォンナビ END-------------------------*/
+
+
+/* ------------------------トップセクション（ファーストビュー） START-------------------------*/
+.top {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    margin: 0 auto;
+}
+
+/* トップイメージ（ヒーローイメージ） */
+.top_img {
+    width: 100%;
+    height: 100%;
+    background: url(../images/hero_img.jpg);
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* トップイメージのテキストコンテナ */
+.top_container {
+    position: absolute;
+
+    /* テキストコンテナ高さ調（色をつけると位置がわかりやすいです */
+    top: 45%;
+    right: 0;
+    width: 100%;
+    height: 50%;
+}
+
+/* トップイメージのテキストコンテナ内のh1テキスト */
+.top_container h1 {
+    color: white;
+    font-size: clamp(3.125rem, 1.25rem + 5.56vw, 6.25rem);
+    letter-spacing: 15px;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, .322);
+}
+
+/* スクロールのCSS */
+.scrolldown1 {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    height: 50px;
+}
+
+.scrolldown1 span {
+    position: absolute;
+    top: -25px;
+    left: -25px;
+    color: white;
+    font-size: 15px;
+    letter-spacing: .05em;
+}
+
+.scrolldown1::after {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    width: 1px;
+    height: 30px;
+    background: white;
+    content: "";
+    animation: pathmove 1.4s ease-in-out infinite;
+}
+
+/* スクロールのアニメーション */
+@keyframes pathmove {
+    0% {
+        opacity: 0;
+        top: 0;
+        height: 0;
+    }
+
+    30% {
+        opacity: 1;
+        height: 30px;
+    }
+
+    100% {
+        opacity: 0;
+        top: 50px;
+        height: 0;
+    }
+}
+
+/* ------------------------トップセクション（ファーストビュー） END-------------------------*/
+
+
+main {
+    width: 100%;
+}
+
+
+/* ------------------------自己紹介セクション START-------------------------*/
+
+.about {
+    width: 90%;
+    max-width: 1440px;
+    margin: 0 auto 150px auto;
+}
+
+/* 「私について」 */
+.about_title {
+    position: relative;
+    z-index: 100;
+    margin-top: 150px;
+    font-size: 40px;
+    letter-spacing: 3px;
+}
+
+/* 私について左のテキスト「ABOUT」 */
+.about_title::before {
+    position: absolute;
+    top: -130px;
+    left: -20px;
+    color: transparent;
+    font-size: 10vw;
+    content: "About";
+
+    -webkit-text-stroke: 1px rgb(145, 145, 145);
+}
+
+/* プロフィールエリア */
+.profile {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 150px;
+}
+
+/* プロフィール写真の設定 */
+#profile_phot {
+    width: 100%;
+    min-width: 320px;
+    max-width: 400px;
+    min-height: 320px;
+    max-height: 420px;
+}
+
+/* プロフィール本文のコンテナ */
+.profile_desc {
+    width: 50%;
+    text-align: left;
+}
+
+/* 名前 */
+.profile_desc h2 {
+    width: 100%;
+    margin-bottom: 40px;
+    font-size: clamp(2.25rem, 1.0927rem + 2.2581vw, 3.125rem);
+    letter-spacing: 5px;
+}
+
+/* 本文 */
+.profile_desc p {
+    font-size: 16px;
+    line-height: 1.5em;
+    letter-spacing: 2px;
+}
+
+/* ------------------------自己紹介セクション END-------------------------*/
+
+
+/* ------------------------スキルセクション START-------------------------*/
+
+.skill {
+    width: 90%;
+    max-width: 1440px;
+    margin: 150px auto;
+}
+
+/* 「できること」 */
+.skill_title {
+    position: relative;
+    z-index: 100;
+    margin-top: 150px;
+    font-size: 40px;
+    letter-spacing: 3px;
+}
+
+.skill_title::before {
+    position: absolute;
+    top: -130px;
+    left: -20px;
+    color: transparent;
+    font-size: 10vw;
+    content: "Skill";
+
+    -webkit-text-stroke: 1px rgb(145, 145, 145);
+}
+
+/* スキルの各項目を包むコンテナ(flexで横並びに) */
+.skill_flex_container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 1440px;
+    height: 400px;
+    margin: 0 auto;
+    margin-top: 150px;
+    text-align: center;
+}
+
+/* スキルの各項目のコンテナ */
+.skill_item {
+    width: 100%;
+}
+
+/* スキルの項目名 */
+.skill_item h2 {
+    margin-bottom: 10px;
+    padding: 10px 0;
+    font-size: 24px;
+}
+
+/* スキルの写真サイズ */
+.skill_item img {
+    width: 100%;
+    min-width: 120px;
+    max-width: 180px;
+    height: 100%;
+    min-height: 120px;
+    max-height: 180px;
+    border-radius: 50px;
+}
+
+/* スキルの説明を包むコンテナ */
+.skill_desc {
+    width: 80%;
+    margin: 0 auto;
+    font-size: 14px;
+    text-align: left;
+}
+
+/* skill使用経験 */
+.skill_desc h3 {
+    padding: 10px 0;
+    font-size: 18px;
+    text-align: center;
+}
+
+/* .skill本文 */
+.skill_desc p {
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* ------------------------スキルセクション END-------------------------*/
+
+
+/* ------------------------作品集セクション START-------------------------*/
+
+.works {
+    width: 90%;
+    max-width: 1440px;
+    margin: 150px auto;
+}
+
+.works_title {
+    position: relative;
+    z-index: 100;
+    margin-top: 150px;
+    padding-bottom: 150px;
+    font-size: 40px;
+    letter-spacing: 3px;
+}
+
+.works_title::before {
+    position: absolute;
+    top: -130px;
+    left: -20px;
+    color: transparent;
+    font-size: 10vw;
+    content: "Works";
+
+    -webkit-text-stroke: 1px rgb(145, 145, 145);
+}
+
+.works_flex_container {
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    text-align: center;
+
+    gap: 50px;
+}
+
+.works_item {
+    width: 100%;
+}
+
+.works_item img {
+    width: 100%;
+    min-width: 250px;
+    max-width: 500px;
+    min-height: 250px;
+    max-height: 400px;
+}
+
+.works_item h2 {
+    margin: 10px;
+}
+
+/* ------------------------作品集セクション END-------------------------*/
+
+
+/* フッター */
+footer {
+    width: 100%;
+    background-color: gainsboro;
+    color: black;
+}
+
+.footer_flex_container {
+    display: flex;
+    width: 100%;
+    height: 200px;
+}
+
+.footer_flex1 {
+    width: 30%;
+    padding: 30px;
+    font-size: clamp(1.25rem, .0101rem + 2.4194vw, 2.1875rem);
+    text-align: left;
+}
+
+.footer_flex2 {
+    width: 70%;
+}
+
+.footer_flex2 ul {
+    list-style: none;
+    width: 30%;
+    margin: 0 0 0 auto;
+    padding-top: 30px;
+    text-align: left;
+}
+
+.footer_flex2 ul li {
+    padding: 10px 0;
+    font-size: clamp(.75rem, .254rem + .9677vw, 1.125rem);
+    transition: .5s;
+}
+
+.footer_flex2 ul li a {
+    color: black;
+    text-decoration: none;
+    transition: .3s;
+}
+
+.footer_flex2 ul li a:hover {
+    color: rgba(0, 0, 0, 0.5);
+}
